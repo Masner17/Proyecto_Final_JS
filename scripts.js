@@ -1,4 +1,4 @@
-const apiKey = 'fGK0OZNCgszufRtabSXPceDE7dQfixyL6DbErIXL8IM';
+const apiKey = '_3ruSZA2ID8XULXj7YvWB_HUm0UldYv79Dh3jhY87_Y';
 const destinations = [
     { name: 'Cancún', country: 'México' },
     { name: 'Bali', country: 'Indonesia' },
@@ -33,10 +33,34 @@ const fetchImages = (query, count, elementId, nameId, label) => {
         .catch(error => {
             console.error('Error:', error);
         });
+
+let searchPerformed = false;
+
+const buscarPais = () => {
+    const pais = document.getElementById('search-input').value.trim();
+    
+    if (!pais) {
+        alert('Por favor, ingresa un país.');
+        return;
+    }
+
+    searchPerformed = true;
+
+    // Mostrar imágenes del país buscado
+    fetchImages(`playa ${pais}`, 2, 'playa-imagenes', 'playa-nombre', 'Playa');
+    fetchImages(pais, 2, 'pais-playa-imagenes', 'pais-playa-nombre', 'País');
+    fetchImages(`templo ${pais}`, 2, 'templo-imagenes', 'templo-nombre', 'Templo');
+};
+
+// Evento para el botón de búsqueda
+document.getElementById('search-button').addEventListener('click', buscarPais);
+
 };
 
 let currentDestinationIndex = 0;
 const updateImages = () => {
+
+    if (!searchPerformed) {
     const destination = destinations[currentDestinationIndex];
 
     // Mostrar imágenes de playa y país
@@ -49,9 +73,9 @@ const updateImages = () => {
 
     // Pasar al siguiente destino
     currentDestinationIndex = (currentDestinationIndex + 1) % destinations.length;
+}
 };
 
 // Llamar a la función para actualizar las imágenes
 updateImages();
-//setInterval(updateImages, 10000);
 
