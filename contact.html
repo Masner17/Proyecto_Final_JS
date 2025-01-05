@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contacto | Viajes Mundo</title>
+</head>
+<body>
+    <header>
+        <nav> <h1>Turismo</h1>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="about.html">Sobre nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-form">
+            <h1>Contacto</h1>
+            <p>Si tienes alguna duda o pregunta, no dudes en ponerte en contacto con nosotros. Completa el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
+            
+            <form action="enviarFormulario.php" method="POST">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+    <br>
+    <br> <br> <br>
+
+    <footer>
+        <p>&copy; 2025 Viajes Mundo. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
